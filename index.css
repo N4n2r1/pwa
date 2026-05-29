@@ -6,7 +6,11 @@ h2 { margin-bottom: 15px; color: #673707; }
 .form-section, .list-section { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 form { display: flex; flex-direction: column; gap: 10px; }
 input, textarea, select, button { padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
-.row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.row { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+    gap: 10px; 
+}
 button { background-color: #673707; color: white; font-weight: bold; cursor: pointer; border: none; }
 button:hover { background-color: #5d2c06; }
 .book-card { border-left: 5px solid #673707; padding: 10px; margin-bottom: 10px; background: #fafafa; border-radius: 0 4px 4px 0; position: relative; }
@@ -16,3 +20,18 @@ button:hover { background-color: #5d2c06; }
 .tag.lido { background-color: #4caf50; }
 .tag.quero { background-color: #2196f3; }
 .delete-btn { position: absolute; top: 10px; right: 10px; background: none; color: red; border: none; font-size: 18px; cursor: pointer; }
+input::placeholder {
+    font-size: 14px;
+}
+#btn-install {
+    background-color: #4caf50; 
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
