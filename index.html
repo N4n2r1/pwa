@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Livros PWA</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6200ee">
+</head>
+<body>
+    <header>
+        <h1>📚 Meu Skoob PWA</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Adicionar Livro</h2>
+            <form id="book-form">
+                <input type="text" id="title" placeholder="Nome do Livro" required>
+                <textarea id="summary" placeholder="Resumo/Sinopse" required></textarea>
+                <div class="row">
+                    <input type="number" id="totalPages" placeholder="Total Págs" required>
+                    <input type="number" id="readPages" placeholder="Págs Lidas" required>
+                </div>
+                <select id="status">
+                    <option value="Quero ler">Quero ler</option>
+                    <option value="Lendo">Lendo</option>
+                    <option value="Lido">Lido</option>
+                </select>
+                <button type="submit">Salvar Livro</button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <h2>Minha Estante</h2>
+            <div id="book-list"></div>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
