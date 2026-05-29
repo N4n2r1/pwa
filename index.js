@@ -58,3 +58,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     displayBooks();
 });
+
+let deferredPrompt;
+const installContainer = document.getElementById('install-container');
+const btnInstall = document.getElementById('btn-install');
+
+// 1. Intercepta o evento de instalação do navegador
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Impede que o Chrome mostre o banner automático dele
+    e.preventDefault();
+    // Guarda o evento para ser usado quando o usuário clicar no botão
+    deferredPrompt = e;
+    // Mostra o container com o nosso botão customizado
+    installContainer.style.display = 'block';
+});
+
+// 2. Lógica do clique no botão
+btnInstall.addEventListener('click', async () => {
+    if (deferredPrompt) {
+        // Mostra a caixinha nativa de confirmação do Android
+        deferredPrompt.prompt();
+        // Espera para ver se o usuário aceitou ou recusou
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`Usuário escolheu: ${outcome}`);
+        // Limpa o prompt para não ser usado de novo
+        deferredPrompt = null;
+        // Esconde o botão novamente
+        installContainer.style.display = 'none';
+    }
+});
+
+// 3. Se o app já foi instalado com sucesso, esconde o botão de vez
+window.addEventListener('appinstalled', () => {
+    console.log('PWA instalado com sucesso!');
+    installContainer.style.display = 'none';
+});
