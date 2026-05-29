@@ -1,11 +1,12 @@
-const CACHE_NAME = 'skoob-cache-v1';
+const CACHE_NAME = 'skoob-cache-v3';
 const ASSETS = [
   './',
   './index.html',
   './index.css',
   './index.js',
   './manifest.json',
-  './icon.jpg'
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 // Instalação do Service Worker e armazenamento em cache
